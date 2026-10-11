@@ -165,7 +165,7 @@ const SignUp = () => {
                   <Input
                     id="name"
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="customer"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -178,7 +178,7 @@ const SignUp = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="xyz@example.com"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}

@@ -17,7 +17,7 @@ const Login = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-  
+
   // Get return URL from query params
   const searchParams = new URLSearchParams(window.location.search);
   const returnTo = searchParams.get('returnTo');
@@ -56,7 +56,7 @@ const Login = () => {
 
       if (data.user) {
         const role = await getUserRole(data.user.id);
-        
+
         if (!role) {
           toast({
             title: "Database Setup Required",
@@ -66,7 +66,7 @@ const Login = () => {
           setLoading(false);
           return;
         }
-        
+
         toast({
           title: "Welcome back!",
           description: "Successfully logged in",
@@ -121,7 +121,7 @@ const Login = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="xyz@gmail.com"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
