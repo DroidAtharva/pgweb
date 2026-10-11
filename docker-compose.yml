@@ -1,14 +1,30 @@
-version: "3.8"
-
 services:
   frontend:
     build: ./frontend
+    container_name: pg-frontend
     ports:
-      - "3000:80"
-    depends_on:
-      - backend
+      - "3000:3000"
+    command: npm run dev
+    networks:
+      - my_network
+    volumes:
+      - my_volume:/app/cache 
 
   backend:
     build: ./backend
+    container_name: pg-backend
     ports:
-      - "5000:5000"
+      - "5002:5000"
+    command: npm start
+    networks:
+      - my_network
+    volumes:
+      - my_volume:/app/data   # ✅ SAFE location
+
+networks:
+  my_network:
+    external: true
+
+volumes:
+  my_volume:
+    external: true
